@@ -3,7 +3,7 @@ export default function thunkMiddleware({ dispatch, getState }) {
     if (typeof action === 'function') {
       const result = action(dispatch, getState);
       if (typeof result === 'object' && result.then === 'function') {
-        return result.then(next);
+        return;
       }
       return result;
     }
